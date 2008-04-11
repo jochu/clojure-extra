@@ -18,8 +18,6 @@ if [[ ! -f /etc/clojure.conf && ! -f ~/.clojure.conf ]]; then
     exit
 fi
 
-[ -f /etc/clojure.conf ] && . /etc/clojure.conf
-[ -f ~/.clojure.conf ]   && . ~/.clojure.conf
 
 # Whether to load the repl or script
 if [ -z "$1" ]; then
@@ -27,6 +25,9 @@ if [ -z "$1" ]; then
 else
 	clj_class=clojure.lang.Script
 fi
+
+[ -f /etc/clojure.conf ] && . /etc/clojure.conf
+[ -f ~/.clojure.conf ]   && . ~/.clojure.conf
 
 clj_cp="."
 [ -f ~/.clojurerc ] && clj_rc=~/.clojurerc
