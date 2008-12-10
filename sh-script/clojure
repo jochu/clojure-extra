@@ -10,7 +10,7 @@
 #
 #
 
-if [[ ! -f /etc/clojure.conf && ! -f ~/.clojure.conf ]]; then
+if [ ! -f /etc/clojure.conf -a ! -f ~/.clojure.conf ]; then
     echo "Error: No config not found at /etc/clojure.conf or ~/.clojure.conf."
     echo "  Please provide one before starting this script."
     echo "  A sample can be found in the emacs-clojure repository named "
@@ -32,7 +32,7 @@ clj_cp="."
 [ -f ~/.clojurerc ] && clj_rc=~/.clojurerc
 [ -d "${clj_ext}" ] && clj_cp="${clj_cp}:${clj_ext}/*"
 
-if [[ -n "${clj_lib}" ]]; then
+if [ -n "${clj_lib}" ]; then
     export LD_LIBRARY_PATH=${clj_lib}:$LD_LIBRARY_PATH
 fi
 
